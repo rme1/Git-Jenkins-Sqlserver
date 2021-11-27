@@ -31,7 +31,7 @@ pipeline{
 def fnExecuteSql(){
     stage('Execute SQL Statment'){
         script{
-            //try{
+            try{
                 env.MY_RESULT = powershell(returnStdout: true, script:
                   '''
                   get-host
@@ -50,9 +50,9 @@ def fnExecuteSql(){
                       Write-Error 'The file does not exist' -ErrorAction Stop
                   }
                   ''')
-            //} catch(err){
-            //    echo err.getMessage()
-            //}
+            } catch(err){
+                echo err.getMessage()
+            }
             echo "${env.MY_RESULT}"
         }
     }
