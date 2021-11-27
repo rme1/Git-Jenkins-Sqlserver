@@ -29,7 +29,7 @@ pipeline{
 }
 
 def fnExecuteSql(){
-    stage('${env:SQLSTATEMENT}'){
+    stage('Execute SQL Statment'){
         script{
             try{
                 powershell script: 
@@ -44,8 +44,8 @@ def fnExecuteSql(){
                   $Datenbank = "merzi"
                   Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"           
                   '''
-            } catch(e){
-                throw(e)
+            } catch(err){
+                echo err.getMessage()
             }
         }
     }
