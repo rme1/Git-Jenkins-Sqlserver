@@ -18,7 +18,7 @@ pipeline{
                         }
                     }
                     catch (e) {
-                        echo('detected failure: function_PSTA_ISCALA_36()')
+                        echo('detected failure ... --> TODO Get Failure !!!')
                         throw(e)
                     }
                 }
@@ -29,6 +29,6 @@ pipeline{
 
 def fnExecuteSql(pStatementToExecute){
     powershell script: '''
-        Write-Output "------> ''$(pStatementToExecute)''"
+        Write-Output "------> $(pStatementToExecute)"
     '''
 }
