@@ -31,7 +31,7 @@ pipeline{
 def fnExecuteSql(){
     powershell script: '''
         Write-Output "----------------------------------------------------------------"
-        $SqlStatement = ${env:SQLSTATEMENT}
+        $SqlStatement = ${param:SQLSTATEMENT}
         Write-Output "----> SqlStatement: $SqlStatement"
         Write-Output "----------------------------------------------------------------"
     '''
