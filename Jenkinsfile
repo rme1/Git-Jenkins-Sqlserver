@@ -53,7 +53,7 @@ def fnExecuteSql(){
             //} catch(err){
             //    echo err.getMessage()
             //}
-            echo "asdfasdf $(result)"
+            echo "asdfasdf $result"
         }
     }
 }
