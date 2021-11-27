@@ -33,7 +33,7 @@ def fnExecuteSql(){
          Write-Output "----------------------------------------------------------------"
         Write-Output "----------------------------------------------------------------"
         $SqlStatement = ${env:SQLSTATEMENT}
-        Write-Output "SqlStatement --> $(SqlStatement)"        
+        Write-Output "SqlStatement --> $SqlStatement)"
         Write-Output "----------------------------------------------------------------"
         $Datenquelle = 'localhost,1433'
         $Benutzer = "sa"
