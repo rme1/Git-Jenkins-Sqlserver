@@ -42,8 +42,12 @@ def fnExecuteSql(){
                   $Benutzer = "sa"
                   $Passwort = "Budget#2021"
                   $Datenbank = "merzi"
-                  Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"           
-                  Write-Error "asdfasdf"
+                  try{
+                     Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"
+                  } catch {
+                      "error when running $SqlStatement"
+                      Write-Host($error)
+                  }
                   '''
             } catch(err){
                 echo err.getMessage()
