@@ -5,7 +5,7 @@ pipeline{
     }
     parameters{
         booleanParam(name: 'DRY_RUN', defaultValue: false, description: 'Just run Pipeline without execution ...')
-        string(name: 'SQLSTATEMENT', defaultValue: 'SELECT 1', description: 'dieses Statement soll ausgeführt werden ...')
+        string(name: 'SQLSTATEMENT', defaultValue: 'EXEC [dbo].[sp_AddPerson]', description: 'dieses Statement soll ausgeführt werden ...')
     }
     stages{
         stage('SqlServerExecuteCommand'){
@@ -36,8 +36,7 @@ def fnExecuteSql(){
         $Benutzer = "sa"
         $Passwort = "Budget#2021"
         $Datenbank = "merzi"
-        Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "EXEC [dbo].[sp_AddPerson]"
-        Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "SELECT sum(1) as Resilt FROM [merzi].[dbo].[Person] WHERE Title = 'X'"
+        Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"
         Write-Output "----------------------------------------------------------------"
     '''
 }
