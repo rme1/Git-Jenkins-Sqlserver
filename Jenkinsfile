@@ -32,7 +32,7 @@ def fnExecuteSql(){
     stage('Execute SQL Statment'){
         script{
             try{
-                powershell script: 
+                result = powershell(returnStatus: true, script: 
                   '''
                   get-host
                   Write-Output "----------------------------------------------------------------"
@@ -49,7 +49,7 @@ def fnExecuteSql(){
                       "error when running $SqlStatement"
                       Write-Host($error)
                   }
-                  '''
+                  ''')
             } catch(err){
                 echo err.getMessage()
             }
