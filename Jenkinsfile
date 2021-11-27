@@ -30,20 +30,17 @@ pipeline{
 
 def fnExecuteSql(){
     stage('execute SQL'){
-        steps{
-            script{
-                try {
-                    powershell script: '''
-                    Write-Output "----------------------------------------------------------------"
-                    '''
-                }
-                catch (e) {
-                    echo('detected failure ... --> TODO Get Failure !!!')
-                    throw(e)
-                }
-            }
+        try {
+            powershell script: '''
+            Write-Output "----------------------------------------------------------------"
+            '''
+        }
+        catch (e) {
+            echo('detected failure ... --> TODO Get Failure !!!')
+            throw(e)
         }
     }
+}
  //   powershell script: '''
  //       Write-Output "----------------------------------------------------------------"
  //       Write-Output "----------------------------------------------------------------"
