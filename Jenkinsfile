@@ -32,7 +32,7 @@ def fnExecuteSql(){
     stage('Execute SQL Statment'){
         script{
             //try{
-                result = powershell(returnStatus: false, script: 
+                env.MY_RESULT = powershell(returnStdout: true, script:
                   '''
                   get-host
                   Write-Output "----------------------------------------------------------------"
@@ -53,7 +53,7 @@ def fnExecuteSql(){
             //} catch(err){
             //    echo err.getMessage()
             //}
-            echo "asdfasdf $result"
+            echo "${env.MY_RESULT}"
         }
     }
 }
