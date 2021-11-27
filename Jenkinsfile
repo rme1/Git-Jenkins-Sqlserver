@@ -29,7 +29,7 @@ pipeline{
 }
 
 def fnExecuteSql(){
-    stage(${env:SQLSTATEMENT}){
+    stage('${env:SQLSTATEMENT}'){
         script{
             try{
                 powershell script: 
