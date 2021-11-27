@@ -46,10 +46,3 @@ def fnExecuteSql(){
         }
     }
 }
-
-//        try{
-
-//        }
-//        catch{
-//            exit $LastExitCode
-//        }
