@@ -34,7 +34,6 @@ def fnExecuteSql(){
             try{
                 env.MY_RESULT = powershell(returnStdout: true, script:
                   '''
-                  get-host
                   Write-Output "----------------------------------------------------------------"
                   $SqlStatement = ${env:SQLSTATEMENT}
                   Write-Output "SqlStatement --> $SqlStatement"
