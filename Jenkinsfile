@@ -44,7 +44,7 @@ def fnExecuteSql(){
                   $Passwort = "Budget#2021"
                   $Datenbank = "merzi"
                   try{
-                     Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"
+                     Invoke-Sqlcmd -Query $SqlStatement -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
                   } catch {
                       "error when running $SqlStatement"
                       Write-Error 'The file does not exist' -ErrorAction Stop
