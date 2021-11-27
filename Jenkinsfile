@@ -29,18 +29,23 @@ pipeline{
 }
 
 def fnExecuteSql(){
-    powershell script: '''
-         Write-Output "----------------------------------------------------------------"
-        Write-Output "----------------------------------------------------------------"
-        $SqlStatement = ${env:SQLSTATEMENT}
-        Write-Output "SqlStatement --> $SqlStatement"
-        Write-Output "----------------------------------------------------------------"
-        $Datenquelle = 'localhost,1433'
-        $Benutzer = "sa"
-        $Passwort = "Budget#2021"
-        $Datenbank = "merzi"
-        Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"
-        Write-Output "----------------------------------------------------------------"
-        Write-Output "----------------------------------------------------------------"        
-    '''
+    stage('execute SQL'){
+        powershell script: '''
+            Write-Output "----------------------------------------------------------------"
+        '''
+    }
+ //   powershell script: '''
+ //       Write-Output "----------------------------------------------------------------"
+ //       Write-Output "----------------------------------------------------------------"
+ //       $SqlStatement = ${env:SQLSTATEMENT}
+ //       Write-Output "SqlStatement --> $SqlStatement"
+ //       Write-Output "----------------------------------------------------------------"
+ //       $Datenquelle = 'localhost,1433'
+ //       $Benutzer = "sa"
+ //       $Passwort = "Budget#2021"
+ //       $Datenbank = "merzi"
+ //       Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"
+ //       Write-Output "----------------------------------------------------------------"
+ //       Write-Output "----------------------------------------------------------------"        
+ //   '''
 }
