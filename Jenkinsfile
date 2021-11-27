@@ -33,7 +33,7 @@ def fnExecuteSql(){
         script{
             try{
                 powershell script: 
-                  '''
+                  '
                   Write-Output "----------------------------------------------------------------"
                   $SqlStatement = ${env:SQLSTATEMENT}
                   Write-Output "SqlStatement --> $SqlStatement"
@@ -43,7 +43,7 @@ def fnExecuteSql(){
                   $Passwort = "Budget#2021"
                   $Datenbank = "merzi"
                   Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"           
-                  '''
+                  '
             } catch(err){
                 echo err.getMessage()
             }
