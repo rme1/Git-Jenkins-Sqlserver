@@ -29,7 +29,6 @@ pipeline{
 }
 
 def fnExecuteSql(){
-    $ErrorActionPreference = "Stop"
     stage('asdf'){
         try{
             powershell script: 
@@ -46,8 +45,8 @@ def fnExecuteSql(){
               '''
         }
         catch{
-            write-host $error[0]
-            throw $LASTEXITCODE
+            write-host "ASDF"
+            exit 1
         }
     }
 }
