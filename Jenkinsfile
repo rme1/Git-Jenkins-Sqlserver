@@ -32,7 +32,10 @@ def fnExecuteSql(){
     stage('asdf'){
         try{
            powershell script: '''
-           Write-Output "asdf : $env:SQLSTATEMENT"
+           Write-Output "----------------------------------------------------------------"
+           $SqlStatement = ${env:SQLSTATEMENT}
+           Write-Output "SqlStatement --> $SqlStatement"
+           Write-Output "----------------------------------------------------------------"
            '''
         }
         catch(e){
