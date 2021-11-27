@@ -31,7 +31,9 @@ pipeline{
 def fnExecuteSql(){
     stage('asdf'){
         try{
-           echo 'sad'
+           powershell script: '''
+           Write-Output "asdf : $env:SQLSTATEMENT"
+           '''
         }
         catch(e){
            throw(e)
