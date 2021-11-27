@@ -12,9 +12,9 @@ pipeline{
                 script{
                     try {
                         if (params.DRY_RUN == true) {
-                            echo('DRY_RUN = TRUE : ...')
+                            echo('fnExecuteSql(''Ralf Merznicht'')')
                         } else {
-                            echo('DRY_RUN = FALSE : ...')
+                            fnExecuteSql('Ralf Merznicht')
                         }
                     }
                     catch (e) {
@@ -25,4 +25,10 @@ pipeline{
             }
         }
     }
+}
+
+def fnExecuteSql(pStatementToExecute){
+    powershell script: '''
+        Write-Output "------> ''$(pStatementToExecute)''"
+    '''
 }
