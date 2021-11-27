@@ -32,7 +32,12 @@ def fnExecuteSql(){
     powershell script: '''
         Write-Output "----------------------------------------------------------------"
         $SqlStatement = ${env:SQLSTATEMENT}
-        Write-Output "----> SqlStatement: $SqlStatement"
+        $Datenquelle = 'localhost,1433'
+        $Benutzer = "sa"
+        $Passwort = "Budget#2021"
+        $Datenbank = "merzi"
+        Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "EXEC [dbo].[sp_AddPerson]"
+        Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "SELECT sum(1) as Resilt FROM [merzi].[dbo].[Person] WHERE Title = 'X'"
         Write-Output "----------------------------------------------------------------"
     '''
 }
