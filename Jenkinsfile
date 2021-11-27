@@ -5,7 +5,7 @@ pipeline{
     }
     parameters{
         booleanParam(name: 'DRY_RUN', defaultValue: true, description: 'Just run Pipeline without execution ...')
-        string(name: 'SQLSTATEMENT', defaultValue: 'SELECT ''Ralf Merznicht''', description: 'dieses Statement soll ausgeführt werden ...')
+        string(name: 'SQLSTATEMENT', defaultValue: 'SELECT "Ralf Merznicht"', description: 'dieses Statement soll ausgeführt werden ...')
     }
     stages{
         stage('SqlServerExecuteCommand'){
