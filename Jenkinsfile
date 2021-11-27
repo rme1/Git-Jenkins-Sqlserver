@@ -4,7 +4,7 @@ pipeline{
         timestamps()
     }
     parameters{
-        booleanParam(name: 'DRY_RUN', defaultValue: true, description: 'Just run Pipeline without execution ...')
+        booleanParam(name: 'DRY_RUN', defaultValue: false, description: 'Just run Pipeline without execution ...')
         string(name: 'SQLSTATEMENT', defaultValue: 'SELECT 1', description: 'dieses Statement soll ausgeführt werden ...')
     }
     stages{
@@ -15,7 +15,7 @@ pipeline{
                         if (params.DRY_RUN == true) {
                             echo('fnExecuteSql(Ralf Merznicht)')
                         } else {
-                            fnExecuteSql(env:SQLSTATEMENT)
+                            fnExecuteSql()
                         }
                     }
                     catch (e) {
@@ -28,10 +28,10 @@ pipeline{
     }
 }
 
-def fnExecuteSql(pAsdf){
+def fnExecuteSql(){
     powershell script: '''
         Write-Output "----------------------------------------------------------------"
-        $SqlStatement = ${pAsdf}
+        $SqlStatement = ${params:SQLSTATEMENT}
         Write-Output "----> SqlStatement: $SqlStatement"
         Write-Output "----------------------------------------------------------------"
     '''
