@@ -31,7 +31,7 @@ pipeline{
 def fnExecuteSql(){
     stage('Execute SQL Statment'){
         script{
-            powershell(returnStdout script:
+            powershell script:
               '''
               Write-Output "----------------------------------------------------------------"
               $SqlStatement = ${env:SQLSTATEMENT}
