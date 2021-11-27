@@ -29,15 +29,12 @@ pipeline{
 }
 
 def fnExecuteSql(){
-    stage('execute SQL'){
-        try {
-            powershell script: '''
-            Write-Output "----------------------------------------------------------------"
-            '''
-        }
-        catch (e) {
-            echo('detected failure ... --> TODO Get Failure !!!')
-            throw(e)
+    stage('asdf'){
+        try{
+           echo 'sad'
+        }  
+        catch(e){
+           throw(e)
         }
     }
 }
