@@ -47,7 +47,7 @@ def fnExecuteSql(){
                      Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"
                   } catch {
                       "error when running $SqlStatement"
-                      Write-Host($error)
+                      Write-Error 'The file does not exist' -ErrorAction Stop
                   }
                   ''')
             //} catch(err){
