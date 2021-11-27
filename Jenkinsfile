@@ -12,7 +12,7 @@ pipeline{
                 script{
                     try {
                         if (params.DRY_RUN == true) {
-                            echo('fnExecuteSql(''Ralf Merznicht'')')
+                            echo('fnExecuteSql(Ralf Merznicht)')
                         } else {
                             fnExecuteSql('Ralf Merznicht')
                         }
