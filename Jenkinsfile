@@ -30,7 +30,12 @@ pipeline{
 
 def fnExecuteSql(){
     stage('asdf'){
-        echo 'asdf'
+        try{
+           echo 'sad'
+        }
+        catch(e){
+           throw(e)
+        }
     }
 }
  //   powershell script: '''
@@ -47,4 +52,4 @@ def fnExecuteSql(){
  //       Write-Output "----------------------------------------------------------------"
  //       Write-Output "----------------------------------------------------------------"        
  //   '''
-}
+//}
