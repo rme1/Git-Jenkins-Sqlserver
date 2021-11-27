@@ -29,6 +29,7 @@ pipeline{
 }
 
 def fnExecuteSql(){
+    $ErrorActionPreference = "Stop"
     stage('asdf'){
         try{
             powershell script: 
