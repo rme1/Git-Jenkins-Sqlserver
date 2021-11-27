@@ -38,7 +38,7 @@ def fnExecuteSql(){
                   $SqlStatement = ${env:SQLSTATEMENT}
                   Write-Output "SqlStatement --> $SqlStatement"
                   Write-Output "----------------------------------------------------------------"
-                  $Datenquelle = 'localhost,1433'
+                  $Datenquelle = "localhost,1433"
                   $Benutzer = "sa"
                   $Passwort = "Budget#2021"
                   $Datenbank = "merzi"
