@@ -31,7 +31,7 @@ pipeline{
 def fnExecuteSql(){
     stage('Execute SQL Statment'){
         script{
-            try{
+            //try{
                 result = powershell(returnStatus: false, script: 
                   '''
                   get-host
@@ -50,9 +50,9 @@ def fnExecuteSql(){
                       Write-Host($error)
                   }
                   ''')
-            } catch(err){
-                echo err.getMessage()
-            }
+            //} catch(err){
+            //    echo err.getMessage()
+            //}
         }
     }
 }
