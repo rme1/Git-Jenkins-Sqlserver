@@ -31,7 +31,11 @@ pipeline{
 def fnExecuteSql(){
     stage('asdf'){
         script{
-            echo "ASDF"
+            try{
+                echo "asdf"
+            } catch(e){
+                throw(e)
+            }
         }
     }
 }
