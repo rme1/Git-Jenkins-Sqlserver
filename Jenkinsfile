@@ -45,8 +45,7 @@ def fnExecuteSql(){
               '''
         }
         catch{
-            write-host "ASDF"
-            exit 1
+            exit $LastExitCode
         }
     }
 }
