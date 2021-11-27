@@ -32,7 +32,7 @@ def fnExecuteSql(){
     stage('Execute SQL Statment'){
         script{
             try{
-                result = powershell(returnStatus: true, script: 
+                result = powershell(returnStatus: false, script: 
                   '''
                   get-host
                   Write-Output "----------------------------------------------------------------"
