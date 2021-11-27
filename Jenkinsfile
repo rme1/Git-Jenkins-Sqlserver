@@ -28,7 +28,7 @@ pipeline{
     }
 }
 
-def fnExecuteSql(){
+def fnExecuteSql(pAsdf){
     powershell script: '''
         Write-Output "----------------------------------------------------------------"
         $SqlStatement = ${param:SQLSTATEMENT}
