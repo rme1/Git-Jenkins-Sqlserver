@@ -30,22 +30,26 @@ pipeline{
 
 def fnExecuteSql(){
     stage('asdf'){
-        try{
-            powershell script: 
-              '''
-              Write-Output "----------------------------------------------------------------"
-              $SqlStatement = ${env:SQLSTATEMENT}
-              Write-Output "SqlStatement --> $SqlStatement"
-              Write-Output "----------------------------------------------------------------"
-              $Datenquelle = 'localhost,1433'
-              $Benutzer = "sa"
-              $Passwort = "Budget#2021"
-              $Datenbank = "merzi"
-              Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"           
-              '''
-        }
-        catch{
-            exit $LastExitCode
+        script{
+            echo "ASDF"
         }
     }
 }
+
+//        try{
+//            powershell script: 
+//              '''
+//              Write-Output "----------------------------------------------------------------"
+//              $SqlStatement = ${env:SQLSTATEMENT}
+//              Write-Output "SqlStatement --> $SqlStatement"
+//              Write-Output "----------------------------------------------------------------"
+//              $Datenquelle = 'localhost,1433'
+//              $Benutzer = "sa"
+//              $Passwort = "Budget#2021"
+//              $Datenbank = "merzi"
+//              Invoke-Sqlcmd -ServerInstance $Datenquelle -Database $Datenbank -Username $Benutzer -Password $Passwort -Query "$SqlStatement"           
+//              '''
+//        }
+//        catch{
+//            exit $LastExitCode
+//        }
