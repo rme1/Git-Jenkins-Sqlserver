@@ -4,6 +4,7 @@ pipeline{
         timestamps()
     }
     parameters{
+        password(name: "TEST_PASSWORD", defaultValue: "Budget#2021", description: "Sample password parameter")
         booleanParam(name: 'DRY_RUN', defaultValue: false, description: 'Just run Pipeline without execution ...')
         string(name: 'SQLSTATEMENT', defaultValue: 'EXEC [dbo].[sp_AddPerson]', description: 'dieses Statement soll ausgeführt werden ...')
     }
