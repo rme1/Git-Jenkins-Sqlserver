@@ -49,7 +49,8 @@ def fnExecuteSql(){
               $Benutzer = "sa"
               $Passwort = ${env:PASSWORD}
               Invoke-Sqlcmd -Query $SqlStatement -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
-              Invoke-Sqlcmd -Query $SqlStatementGetInfo -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
+              $GetInfo = Invoke-Sqlcmd -Query $SqlStatementGetInfo -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
+              write-host ($GetInfo | Format-Table | Out-String) 
               '''
         }
     }
