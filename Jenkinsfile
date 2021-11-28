@@ -6,8 +6,8 @@ pipeline{
     parameters{
         password(name: "PASSWORD", defaultValue: "Budget#2021", description: "Sample password parameter")
         booleanParam(name: 'DRY_RUN', defaultValue: false, description: 'Just run Pipeline without execution ...')
-        string(name: 'SQLSTATEMENT', defaultValue: 'EXEC [dbo].[sp_AddPerson]', description: 'dieses Statement soll ausgeführt werden ...')
-        string(name: 'SQLSTATEMENT_GETINFO', defaultValue: 'SELECT TOP (1000) [Title],[FirstName],[MiddleName],[LastName] FROM [merzi].[dbo].[Person] WHERE Title = ''X''', description: 'nachsehen was passiert ist ...')
+        string(name: 'SQLSTATEMENT', defaultValue: "EXEC [dbo].[sp_AddPerson]", description: "dieses Statement soll ausgeführt werden ...")
+        string(name: 'SQLSTATEMENT_GETINFO', defaultValue: "SELECT TOP (1000) [Title],[FirstName],[MiddleName],[LastName] FROM [merzi].[dbo].[Person] WHERE Title = 'X'", description: "nachsehen was passiert ist ...")
     }
     stages{
         stage('SqlServerExecuteCommand'){
