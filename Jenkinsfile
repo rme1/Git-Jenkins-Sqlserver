@@ -34,7 +34,7 @@ pipeline{
 def fnExecuteSql(pUebergabe){
     stage('test'){
         script{
-            echo('asdf : ${pUebergabe}')
+            echo('asdf : $def:pUebergabe')
         }
     }
 }
