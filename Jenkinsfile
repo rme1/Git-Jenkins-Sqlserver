@@ -17,7 +17,7 @@ pipeline{
                         if (params.DRY_RUN == true) {
                             echo('fnExecuteSql(Ralf Merznicht)')
                         } else {
-                            fnExecuteSql()
+                            fnExecuteSql('ASDF')
                         }
                     }
                     catch (e) {
@@ -30,9 +30,10 @@ pipeline{
     }
 }
 
-def fnExecuteSql(){
+def fnExecuteSql(pUebergabe){
     stage('Execute SQL Statment'){
         script{
+            echo $pUebergabe
             powershell script:
               '''
               Write-Output "----------------------------------------------------------------"              
