@@ -33,7 +33,7 @@ pipeline{
 def fnExecuteSql(pUebergabe){
     stage('Execute SQL Statment'){
         script{
-            echo $pUebergabe
+            echo('asdf : $pUebergabe')
             powershell script:
               '''
               Write-Output "----------------------------------------------------------------"              
