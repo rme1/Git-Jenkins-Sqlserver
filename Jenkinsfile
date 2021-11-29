@@ -30,6 +30,14 @@ pipeline{
     }
 }
 
+
+def fnExecuteSql(pUebergabe){
+    steps{
+        echo('ASDF')
+    }
+}
+
+/*
 def fnExecuteSql(pUebergabe){
     stage('Execute SQL Statment'){
         script{
@@ -57,3 +65,4 @@ def fnExecuteSql(pUebergabe){
         }
     }
 }
+*/
