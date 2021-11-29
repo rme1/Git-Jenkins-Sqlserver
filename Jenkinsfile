@@ -34,6 +34,7 @@ def fnExecuteSql(pUebergabe){
     stage('Execute SQL Statment'){
         script{
             echo('asdf : ${pUebergabe}')
+            echo($(JOB_URL))
             powershell script:
               '''
               Write-Output "----------------------------------------------------------------"              
