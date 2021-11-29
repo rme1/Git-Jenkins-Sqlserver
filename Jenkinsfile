@@ -32,7 +32,7 @@ pipeline{
 
 
 def fnExecuteSql(pUebergabe){
-    steps{
+    stage('test'){
         echo('ASDF')
     }
 }
