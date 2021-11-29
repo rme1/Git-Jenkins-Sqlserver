@@ -32,9 +32,8 @@ pipeline{
 
 def fnExecuteSql(pUebergabe){
     stage('Execute SQL Statment'){
-        steps{
         script{
-            echo('asdf : $pUebergabe')
+            echo('asdf : ${pUebergabe}')
             powershell script:
               '''
               Write-Output "----------------------------------------------------------------"              
@@ -54,7 +53,6 @@ def fnExecuteSql(pUebergabe){
               $GetInfo = Invoke-Sqlcmd -Query $SqlStatementGetInfo -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
               write-host ($GetInfo | Format-Table | Out-String) 
               '''
-            }
         }
     }
 }
