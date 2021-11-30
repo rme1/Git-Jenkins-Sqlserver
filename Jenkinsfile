@@ -16,7 +16,7 @@ pipeline{
                         if (params.DRY_RUN == true) {
                             echo('fnExecuteSql(${env:SQLSTATEMENT})')
                         } else {
-                            fnExecuteSql('ASDF')
+                            fnExecuteSql(${env:SQLSTATEMENT})
                         }
                     }
                     catch (e) {
