@@ -31,12 +31,18 @@ pipeline{
 }
 
 
-def fnExecuteSql(pUebergabe){
-    stage('test'){
-        script{
-            echo('asdf : $def:pUebergabe')
-        }
-    }
+def fnExecuteSql(String pUebergabe){
+    withEnv(["ParamInPowershell=${pUebergabe}"])
+    {
+        powershell script: '''
+            
+            $TimeZone = $env:ParamInPowershell
+            Write-Output "----------------------------------------------------------------"
+            Write-Output "----------------------------------------------------------------"
+            Write-Output "----> ParamInPowershell: $TimeZone"
+            Write-Output "----------------------------------------------------------------"
+            '''
+    }       
 }
 
 /*
