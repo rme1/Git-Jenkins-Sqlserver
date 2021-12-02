@@ -29,7 +29,7 @@ pipeline{
     }
 }
 
-
+/*
 def fnExecuteSql(String pStatementToExecute){
     withEnv(["InFunctStatementToExecute=${pStatementToExecute}"])
     {
@@ -49,34 +49,5 @@ def fnExecuteSql(String pStatementToExecute){
               write-host ($GetInfo | Format-Table | Out-String) 
               '''
     }       
-}
-
-/*
-def fnExecuteSql(pUebergabe){
-    stage('Execute SQL Statment'){
-        script{
-            echo('asdf : ${pUebergabe}')
-            echo('${JOB_URL}')
-            powershell script:
-              '''
-              Write-Output "----------------------------------------------------------------"              
-              Write-Output "----------------------------------------------------------------"
-              $SqlStatement = ${env:SQLSTATEMENT}
-              Write-Output "SqlStatement --> $SqlStatement"
-              Write-Output "----------------------------------------------------------------"              
-              $SqlStatementGetInfo = ${env:SQLSTATEMENT_GETINFO}
-              Write-Output "SqlStatementGetInfo --> $SqlStatementGetInfo"              
-              Write-Output "----------------------------------------------------------------"
-              Write-Output "----------------------------------------------------------------"              
-              $Datenquelle = "localhost,1433"
-              $Datenbank = "merzi"
-              $Benutzer = "sa"
-              $Passwort = ${env:PASSWORD}
-              Invoke-Sqlcmd -Query $SqlStatement -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
-              $GetInfo = Invoke-Sqlcmd -Query $SqlStatementGetInfo -ServerInstance $Datenquelle -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $Benutzer -password $Passwort
-              write-host ($GetInfo | Format-Table | Out-String) 
-              '''
-        }
-    }
 }
 */
