@@ -18,7 +18,7 @@ pipeline{
                         if (params.DRY_RUN == true) {
                             echo('fnExecuteSql(${env:SQLSTATEMENT})')
                         } else {
-                            lib.fnExecuteSql("${env:SQLSTATEMENT}")
+                            fnExecuteSql("${env:SQLSTATEMENT}")
                         }
                     }
                     catch (e) {
@@ -31,7 +31,6 @@ pipeline{
     }
 }
 
-/*
 def fnExecuteSql(String pStatementToExecute){
     withEnv(["InFunctStatementToExecute=${pStatementToExecute}"])
     {
@@ -52,4 +51,3 @@ def fnExecuteSql(String pStatementToExecute){
               '''
     }       
 }
-*/
