@@ -31,6 +31,7 @@ pipeline{
     }
 }
 
+/*
 def fnExecuteSql(String pStatementToExecute){
     withEnv(["InFunctStatementToExecute=${pStatementToExecute}"])
     {
@@ -51,3 +52,4 @@ def fnExecuteSql(String pStatementToExecute){
               '''
     }       
 }
+*/
