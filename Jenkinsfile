@@ -18,7 +18,7 @@ pipeline{
                         if (params.DRY_RUN == true) {
                             echo('fnExecuteSql(${env:SQLSTATEMENT})')
                         } else {
-                            fnExecuteSql("${env:SQLSTATEMENT}")
+                            lib.fnExecuteSql("${env:SQLSTATEMENT}")
                         }
                     }
                     catch (e) {
