@@ -1,4 +1,4 @@
-@Library('lib') _
+@Library('libs') _
 
 pipeline{
     agent any
@@ -18,7 +18,7 @@ pipeline{
                         if (params.DRY_RUN == true) {
                             echo('fnExecuteSql(${env:SQLSTATEMENT})')
                         } else {
-                            lib.fnExecuteSql("${env:SQLSTATEMENT}")
+                            psfunctions.fnExecuteSql("${env:SQLSTATEMENT}")
                         }
                     }
                     catch (e) {
