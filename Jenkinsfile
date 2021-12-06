@@ -12,7 +12,22 @@ pipeline{
     }
     stages{
         stage('SqlServerExecuteCommand'){
-            psta_iscala_36.LoadTables()
+            steps{
+                script{
+                    try {
+                        if (params.DRY_RUN == true) {
+                            echo('fnExecuteSql(${env:SQLSTATEMENT})')
+                        } else {
+                            //psfunctions.fnExecuteSql("${env:SQLSTATEMENT}")
+                            psta_iscala_36.LoadTables()
+                        }
+                    }
+                    catch (e) {
+                        echo('detected failure ... --> TODO Get Failure !!!')
+                        throw(e)
+                    }
+                }
+            }
         }
     }
 }
