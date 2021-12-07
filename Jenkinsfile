@@ -45,7 +45,8 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
                 Write-Output "----------------------------------------------------------------"
                 Write-Output "----------------------------------------------------------------"                
                 $OutputEncoding
-                $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
+                # $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
+                $PSDefaultParameterValues['*:Encoding'] = 'utf8'
                 Write-Output "----------------------------------------------------------------"                                
                 $OutputEncoding                
                 Write-Output "pw --> $pw"
