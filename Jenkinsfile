@@ -35,8 +35,8 @@ pipeline{
 }
 
 def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
-    withCredentials([usernamePassword(credentialsId: 'rm1', usernameVariable: 'USER_ID', passwordVariable: 'USER_PASSWORD')])
-    {
+    //withCredentials([usernamePassword(credentialsId: 'rm1', usernameVariable: 'USER_ID', passwordVariable: 'USER_PASSWORD')])
+    //{
         withEnv(["InFunctSchema=${pSchema}","InFunctProcedureName=${pProcedureName}","InFunctBuildId=${pBuildId}"])
         {
             powershell script:
@@ -72,5 +72,5 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
                 write-host ($GetInfo | Format-Table | Out-String)
                 '''
         }
-    }
+    //}
 }
