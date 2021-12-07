@@ -20,8 +20,8 @@ pipeline{
                             echo('fnExecuteSql(${env:SQLSTATEMENT})')
                         } else {
                             //psfunctions.fnExecuteSql("${env:SQLSTATEMENT}")
-                            echo "psta_iscala_36.LoadTables()"
-                            ExecuteSql('aasdf','asdf','asdf')
+                            psta_iscala_36.LoadTables()
+                            //ExecuteSql('aasdf','asdf','asdf')
                         }
                     }
                     catch (e) {
