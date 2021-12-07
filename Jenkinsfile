@@ -35,7 +35,7 @@ pipeline{
 }
 
 def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
-    withCredentials([usernamePassword(credentialsId: 'JHDWH-Dev', usernameVariable: 'USER_ID', passwordVariable: 'USER_PASSWORD')])
+    withCredentials([usernamePassword(credentialsId: 'rm1', usernameVariable: 'USER_ID', passwordVariable: 'USER_PASSWORD')])
     {
         withEnv(["InFunctSchema=${pSchema}","InFunctProcedureName=${pProcedureName}","InFunctBuildId=${pBuildId}"])
         {
