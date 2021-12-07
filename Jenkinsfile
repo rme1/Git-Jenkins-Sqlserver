@@ -39,14 +39,13 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
     //{
         withEnv(["InFunctSchema=${pSchema}","InFunctProcedureName=${pProcedureName}","InFunctBuildId=${pBuildId}"])
         {
-            powershell 'Powershell: ExecuteSql' script:
+            powershell encoding: 'UTF-8', script:
                 '''
                 $pw = "gmcsTtmE80N6GN§DFdvvurn§"
                 Write-Output "----------------------------------------------------------------"
                 Write-Output "----------------------------------------------------------------"                
                 $OutputEncoding
-                # $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
-                $PSDefaultParameterValues['*:Encoding'] = 'utf8'
+                $PSDefaultParameterValues['*:CodePage'] = '1252'
                 Write-Output "----------------------------------------------------------------"                                
                 $OutputEncoding                
                 Write-Output "pw --> $pw"
