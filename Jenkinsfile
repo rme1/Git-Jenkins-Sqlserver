@@ -41,6 +41,11 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
         {
             powershell script:
                 '''
+                $pw = "gmcsTtmE80N6GN§DFdvvurn§"
+                Write-Output "----------------------------------------------------------------"
+                Write-Output "pw --> $pw"
+                Write-Output "----------------------------------------------------------------"                
+
                 $InShellSchema = ${env:InFunctSchema}
                 $InShellProcedureName = ${env:InFunctProcedureName}
                 $InShelltBuildId = ${env:InFunctBuildId}
@@ -67,9 +72,9 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
                 Write-Output "----------------------------------------------------------------"              
                 Write-Output "----------------------------------------------------------------"              
                 $Datenbank = "JHDWH"
-                Invoke-Sqlcmd -Query $StatementToExecuteComplete -ServerInstance $InShellServer -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $InShellUser -password $env:USER_PASSWORD
-                $GetInfo = Invoke-Sqlcmd -Query $StatementGetInfo -ServerInstance $InShellServer -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $InShellUser -password $env:USER_PASSWORD
-                write-host ($GetInfo | Format-Table | Out-String)
+                # Invoke-Sqlcmd -Query $StatementToExecuteComplete -ServerInstance $InShellServer -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $InShellUser -password $env:USER_PASSWORD
+                # $GetInfo = Invoke-Sqlcmd -Query $StatementGetInfo -ServerInstance $InShellServer -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $InShellUser -password $env:USER_PASSWORD
+                # write-host ($GetInfo | Format-Table | Out-String)
                 '''
         }
     //}
