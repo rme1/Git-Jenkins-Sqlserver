@@ -41,7 +41,7 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
         {
             powershell encoding: 'UTF-8', script:
                 '''
-                $pw = "gmcsTtmE80N6GN§DFdvvurn§"::UTF8
+                $pw = "gmcsTtmE80N6GN§DFdvvurn§"
                 Write-Output "----------------------------------------------------------------"
                 Write-Output "----------------------------------------------------------------"                
                 $OutputEncoding
