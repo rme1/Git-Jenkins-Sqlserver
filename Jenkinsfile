@@ -39,7 +39,7 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
     //{
         withEnv(["InFunctSchema=${pSchema}","InFunctProcedureName=${pProcedureName}","InFunctBuildId=${pBuildId}"])
         {
-            powershell encoding: 'OEM', script:
+            powershell encoding: 'UTF8', script:
                 '''
                 $pw = "gmcsTtmE80N6GN§DFdvvurn§"
                 Write-Output "----------------------------------------------------------------"
