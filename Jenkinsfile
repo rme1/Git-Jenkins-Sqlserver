@@ -41,13 +41,11 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
         {
             powershell encoding: 'UTF-8', script:
                 '''
-                $pw = "gmcsTtmE80N6GN§DFdvvurn§"
+                $pw = "gmcsTtmE80N6GN§DFdvvurn§"::UTF8
                 Write-Output "----------------------------------------------------------------"
                 Write-Output "----------------------------------------------------------------"                
                 $OutputEncoding
-                $PSDefaultParameterValues['*:CodePage'] = '1252'
                 Write-Output "----------------------------------------------------------------"                                
-                $OutputEncoding                
                 Write-Output "pw --> $pw"
                 Write-Output "----------------------------------------------------------------"                
 
