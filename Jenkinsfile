@@ -43,6 +43,8 @@ def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
                 '''
                 $pw = "gmcsTtmE80N6GN§DFdvvurn§"
                 Write-Output "----------------------------------------------------------------"
+                Write-Output "----------------------------------------------------------------"                
+                $OutputEncoding
                 Write-Output "pw --> $pw"
                 Write-Output "----------------------------------------------------------------"                
 
