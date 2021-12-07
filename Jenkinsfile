@@ -21,6 +21,7 @@ pipeline{
                         } else {
                             //psfunctions.fnExecuteSql("${env:SQLSTATEMENT}")
                             echo "psta_iscala_36.LoadTables()"
+                            ExecuteSql('aasdf','asdf','asdf')
                         }
                     }
                     catch (e) {
@@ -29,6 +30,47 @@ pipeline{
                     }
                 }
             }
+        }
+    }
+}
+
+def ExecuteSql(String pSchema, String pProcedureName, String pBuildId){
+    withCredentials([usernamePassword(credentialsId: 'JHDWH-Dev', usernameVariable: 'USER_ID', passwordVariable: 'USER_PASSWORD')])
+    {
+        withEnv(["InFunctSchema=${pSchema}","InFunctProcedureName=${pProcedureName}","InFunctBuildId=${pBuildId}"])
+        {
+            powershell script:
+                '''
+                $InShellSchema = ${env:InFunctSchema}
+                $InShellProcedureName = ${env:InFunctProcedureName}
+                $InShelltBuildId = ${env:InFunctBuildId}
+               
+                $InShellServer = 'zde01sql9291'
+                Write-Output "----------------------------------------------------------------"
+                Write-Output "InShellServer --> $InShellServer"
+                Write-Output "----------------------------------------------------------------"
+ 
+                $InShellUser = ${env:USER_ID}
+                Write-Output "----------------------------------------------------------------"
+                Write-Output "InShellUser --> $InShellUser"
+                Write-Output "----------------------------------------------------------------"
+ 
+                # $InShellPassword = ${env:USER_PASSWORD}
+ 
+                $StatementToExecuteComplete = 'EXEC [' + $InShellSchema + '].[' + $InShellProcedureName + '] ' + $InShelltBuildId
+                $StatementGetInfo = 'SELECT * FROM META.t_LoggingSql WHERE [Procedure] = TRIM('' ' + $InShellProcedureName + ' '') AND ExecutionId = ' + $InShelltBuildId
+                Write-Output "----------------------------------------------------------------"              
+                Write-Output "----------------------------------------------------------------"
+                Write-Output "StatementToExecuteComplete --> $StatementToExecuteComplete"
+                Write-Output "----------------------------------------------------------------"              
+                Write-Output "StatementGetInfo --> $StatementGetInfo"
+                Write-Output "----------------------------------------------------------------"              
+                Write-Output "----------------------------------------------------------------"              
+                $Datenbank = "JHDWH"
+                Invoke-Sqlcmd -Query $StatementToExecuteComplete -ServerInstance $InShellServer -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $InShellUser -password $env:USER_PASSWORD
+                $GetInfo = Invoke-Sqlcmd -Query $StatementGetInfo -ServerInstance $InShellServer -database $Datenbank -QueryTimeout 65535 -ErrorAction 'Stop' -username $InShellUser -password $env:USER_PASSWORD
+                write-host ($GetInfo | Format-Table | Out-String)
+                '''
         }
     }
 }
